@@ -5,7 +5,8 @@
   --accent-white: #C1C1C1;
   --primary-color: #FFCB74;
   --secondary-color: #133247;
-  --dark-font: #0F1013;
+  --font-color: #737373;
+  --font-color-dark: #133247;
   --primary-font: "Oxygen", serif;
   --secondary-font: "Philosopher", serif;
 }
@@ -26,6 +27,7 @@ body {
   font-size: 18px;
   font-family: var(--primary-font);
   line-height: 1.77;
+  color: var(--font-color);
 }
 
 .container {
@@ -40,6 +42,10 @@ svg {
   max-width: 100%;
 }
 
+p:not(:last-child) {
+  margin-bottom: 16px;
+}
+
 h1,
 h2,
 h3,
@@ -48,6 +54,7 @@ h5,
 h6 {
   font-weight: 700;
   font-family: var(--secondary-font);
+  color: var(--font-color-dark);
 }
 
 button {
