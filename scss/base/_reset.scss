@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--font-color);
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+p:not(:last-child) {
+    margin-bottom: var(--spacing-md);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--secondary-font);
+    margin-bottom: var(--spacing-md);
+} 

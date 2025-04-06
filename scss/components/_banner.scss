@@ -1,0 +1,85 @@
+@use '../utils/mixins' as *;
+
+.banner {
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, var(--secondary-color), #1a4766);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+
+    // Sparkle effect
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            radial-gradient(2px 2px at 20% 20%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 40% 40%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 60% 60%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 80% 80%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 10% 90%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 30% 70%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 50% 30%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 70% 10%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 90% 50%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 15% 45%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 35% 85%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 55% 15%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 75% 65%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 95% 25%, rgba(255, 255, 255, 0.8) 50%, transparent),
+            radial-gradient(2px 2px at 25% 95%, rgba(255, 255, 255, 0.8) 50%, transparent);
+        background-size: 200% 200%;
+        animation: sparkleMove 20s linear infinite;
+        opacity: 1;
+    }
+
+    .banner-content {
+        position: relative;
+        z-index: 2;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle at center,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.05) 50%,
+                    transparent 100%);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .title {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            font-family: var(--secondary-font);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+            br {
+                display: block;
+                content: "";
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}
+
+// Responsive styles
+@include mobile {
+    .banner {
+        padding: 150px 0 80px;
+    }
+} 

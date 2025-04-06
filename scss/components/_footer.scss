@@ -1,0 +1,122 @@
+@use '../utils/mixins' as *;
+
+.site-footer {
+    background: var(--secondary-color);
+    padding: 60px 0 20px;
+    color: rgba(255, 255, 255, 0.9);
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 1.5fr 2fr;
+        gap: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-info {
+        .logo {
+            margin-bottom: var(--spacing-md);
+            img {
+                height: 35px;
+            }
+        }
+
+        .company-desc {
+            margin-bottom: 25px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            p {
+                margin-bottom: var(--spacing-sm);
+                @include flex(row, flex-start, center);
+                gap: var(--spacing-sm);
+                
+                i {
+                    color: var(--accent-color);
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .footer-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+
+        .link-group {
+            h4 {
+                color: white;
+                margin-bottom: var(--spacing-md);
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            ul {
+                list-style: none;
+                
+                li {
+                    margin-bottom: 12px;
+                    
+                    a {
+                        color: rgba(255, 255, 255, 0.8);
+                        text-decoration: none;
+                        @include transition;
+                        
+                        &:hover {
+                            color: white;
+                            padding-left: var(--spacing-xs);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        padding-top: var(--spacing-md);
+        @include flex(row, space-between, center);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+
+        a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            @include transition(color);
+
+            &:hover {
+                color: white;
+            }
+        }
+
+        .certification {
+            padding: var(--spacing-xs) 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+    }
+}
+
+// Responsive styles
+@include mobile {
+    .site-footer {
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+
+        .footer-links {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+            gap: var(--spacing-sm);
+        }
+    }
+} 

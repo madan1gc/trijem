@@ -1,0 +1,86 @@
+@use '../utils/mixins' as *;
+@use 'sass:color';
+
+// Base button styles
+.btn {
+    @include button-base;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -50%;
+        left: -10%;
+        width: 120%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: skewY(-5deg);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: -1;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+
+        &::after {
+            transform: translateY(-40%) skewY(-5deg);
+        }
+    }
+}
+
+// Button variants
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+
+    &:hover {
+        background: color.adjust(#283845, $lightness: -10%);
+    }
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+
+    &:hover {
+        background: color.adjust(#202C39, $lightness: -10%);
+    }
+}
+
+// CTA Button
+.cta-button,
+.join-btn {
+    @include button-base;
+    padding: 12px 28px;
+    background: linear-gradient(45deg, var(--primary-color), #3A506B);
+    background-size: 200% auto;
+    color: white;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #3A506B, var(--primary-color));
+        border-radius: 30px;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.5s ease;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(58, 80, 107, 0.2);
+
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 10px rgba(58, 80, 107, 0.2);
+    }
+} 

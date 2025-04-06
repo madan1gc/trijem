@@ -1,0 +1,140 @@
+// Tech Sourcing Page Styles
+.tech-sourcing-hero {
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, var(--accent-color), #FF8C42);
+    color: white;
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+
+        h2 {
+            font-size: 2.5rem;
+            line-height: 1.3;
+        }
+    }
+}
+
+.our-story {
+    padding: 100px 0;
+    background: #fff;
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: var(--secondary-color);
+    }
+
+    .story-content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+}
+
+.working-principles {
+    padding: 100px 0;
+    background: #f8f9fa;
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+    }
+
+    .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .principle-card {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        h3 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: var(--font-color);
+            line-height: 1.7;
+        }
+    }
+}
+
+.differentiators {
+    padding: 100px 0;
+    background: white;
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+    }
+
+    .differentiators-list {
+        max-width: 900px;
+        margin: 0 auto;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 20px;
+
+        li {
+            position: relative;
+            padding-left: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+
+            &::before {
+                content: '→';
+                position: absolute;
+                left: 0;
+                color: var(--accent-color);
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-sourcing-hero {
+        padding: 150px 0 80px;
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .principles-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .differentiators-list {
+        grid-template-columns: 1fr !important;
+        padding: 0 20px;
+    }
+}

@@ -1,0 +1,55 @@
+// Flexbox mixins
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// Media query mixins
+@mixin mobile {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 769px) and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1025px) {
+        @content;
+    }
+}
+
+// Transition mixin
+@mixin transition($property: all, $duration: var(--transition-fast)) {
+    transition: $property $duration;
+}
+
+// Hover effect mixin
+@mixin hover-lift {
+    @include transition;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+// Button base mixin
+@mixin button-base {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    @include transition;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+} 
