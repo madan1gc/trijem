@@ -58,38 +58,52 @@
 // Floating animation for accent dots
 @keyframes floatAround {
     0% {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0);
     }
 
     25% {
-        transform: translate(15px, -15px) scale(1.2);
+        transform: translate(15px, -15px);
     }
 
     50% {
-        transform: translate(-10px, 20px) scale(0.8);
+        transform: translate(-10px, 20px);
     }
 
     75% {
-        transform: translate(-20px, -10px) scale(1.1);
+        transform: translate(-20px, -10px);
     }
 
     100% {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0);
     }
 }
 
-// Slight rotation animation
-@keyframes slowRotate {
-    0% {
-        transform: rotate(0deg);
-    }
+.accent-dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
 
-    100% {
-        transform: rotate(360deg);
+    @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+            top: percentage(random(80) / 100 + 0.1);
+            left: percentage(random(80) / 100 + 0.1);
+            animation: floatAround #{random(6) + 4}s ease-in-out infinite;
+            animation-delay: #{$i * 0.3}s;
+            opacity: (random(20) + 10) / 100;
+        }
     }
 }
 
-// Animation classes
+section {
+    position: relative;
+    overflow: hidden;
+}
+
 .fade-up {
     opacity: 0;
     transform: translateY(20px);
@@ -108,96 +122,3 @@
 .sparkle {
     animation: sparkleMove 20s linear infinite;
 }
-
-// The updated accent-dot class with movement animations
-.accent-dot {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: var(--accent-color);
-    opacity: 0.2;
-    z-index: 0;
-    pointer-events: none; // Makes sure they don't interfere with clicks
-    
-    // Generate randomly positioned dots with different animations
-    @for $i from 1 through 8 {
-      &:nth-child(#{$i}) {
-        // Random positions within the section
-        top: percentage(random(80) / 100 + 0.1); // Keep within 10-90% range
-        left: percentage(random(80) / 100 + 0.1);
-        
-        // Random sizes
-        width: random(20) + 5px;
-        height: random(20) + 5px;
-        
-        // Different animation speeds and delays for each dot
-        animation: 
-          floatAround #{random(20) + 10}s ease-in-out infinite,
-          slowRotate #{random(60) + 30}s linear infinite;
-        animation-delay: #{$i * 0.7}s;
-        
-        // Random opacity
-        opacity: (random(30) + 10) / 100;
-        
-        // Add different background gradients for some dots
-        @if $i % 3 == 0 {
-          background: radial-gradient(
-            circle at center,
-            var(--accent-color) 0%,
-            rgba(255, 255, 255, 0) 70%
-          );
-          width: random(40) + 20px;
-          height: random(40) + 20px;
-        }
-        
-        // Add blurry effect to some dots for depth
-        @if $i % 2 == 0 {
-          filter: blur(random(3) + 1px);
-        }
-      }
-    }
-  }
-  
-  // Add a container to constrain the dots' movement within each section
-  section {
-    position: relative;
-    overflow: hidden; // Keeps the dots from overflowing
-    
-    &:hover {
-      .accent-dot {
-        // Speed up animation slightly on section hover
-        animation-duration: 15s, 40s;
-      }
-    }
-  }
-  
-  // Add a special larger bubble that moves slowly across sections
-  .floating-bubble {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: radial-gradient(
-      circle at 30% 30%,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 165, 82, 0.1) 30%,
-      rgba(255, 165, 82, 0) 70%
-    );
-    pointer-events: none;
-    z-index: 0;
-    animation: bubbleFloat 40s linear infinite;
-    opacity: 0.2;
-    
-    @keyframes bubbleFloat {
-      0% {
-        transform: translate(-100px, -50px) scale(0.8);
-      }
-      50% {
-        transform: translate(calc(100vw - 50px), calc(100% + 50px)) scale(1.2);
-      }
-      100% {
-        transform: translate(-100px, -50px) scale(0.8);
-      }
-    }
-  }
