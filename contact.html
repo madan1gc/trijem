@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trijem - IT Consulting & Staffing Services">
+    <title>Contact Us - Trijem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <img src="images/logo.png" alt="Trijem33" height="40">
+                </a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-menu-item">
+                            <a class="nav-menu-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a class="nav-menu-link" href="tech-sourcing.html">Tech Sourcing</a>
+                        </li>
+                        <li class="nav-menu-item">
+                            <a class="nav-menu-link" href="join-our-team.html">Join Our Team</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="contact.html" class="cta-button">How Can We Help?</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content" data-aos="fade-up">
+            <span class="subtitle">Tell Us</span>
+            <h1 class="title">How can we help you?</h1>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-intro" data-aos="fade-up">
+                <p>We, at TriJem33 Consulting, would like to thank you for contacting us. We value your business and the
+                    opportunity to provide our excellent service to you.</p>
+                <p>If you are an <strong>organization</strong> looking to hire outsourced talents, we would like to hear
+                    your challenges with staffing firms, your job order requests, and your compliance requirements. We
+                    will endeavor to efficiently fill your job orders with highly-qualified technical resources. We look
+                    forward to add value to your projects and help your organization meet its diversity objectives.</p>
+                <p>If you are a <strong>talented individual</strong> looking for an opportunity, we would like to hear
+                    about your passion, your technical experience, and compensation structure that you are expecting to
+                    receive. We will make it our goal to match you with a suitable organization where you can grow as a
+                    professional, improve your skills, while doing what you are passionate about and be compensated
+                    well! We are looking forward to serve you!</p>
+                <p>Please use the form below to tell us about how we can help you. You may also email or call us to make
+                    an appointment.</p>
+            </div>
+
+            <form class="contact-form" data-aos="fade-up">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">How Can We Help? *</label>
+                    <textarea id="message" name="message" rows="5" required
+                        placeholder="Please do not include confidential or sensitive information in your message."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Trijem33">
+                    </div>
+                    <p class="company-desc">
+                        Let’s talk about you! Here at TriJem33 Consulting, we want to understand your organization's
+                        pain points in onboarding technical resources to assist you in finding the right-fit technical
+                        talents who will help your project become a success.
+                    </p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +1 (212) 792-6738</p>
+                        <p><i class="fas fa-envelope"></i> info@trijem33.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 21 Natalie Ct. Staten Island, NY 10304 USA</p>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Tech Sourcing</a></li>
+                            <li><a href="#">Join Our Team</a></li>
+                            <li><a href="#">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">IT Consulting</a></li>
+                            <li><a href="#">Staff Augmentation</a></li>
+                            <li><a href="#">Software Development</a></li>
+                            <li><a href="#">Quality Assurance</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TriJem33 Consulting LLC | <a href="#">Privacy Policy</a></p>
+                <p class="certification">NYC M/WBE Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                offset: 100,
+                once: true
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

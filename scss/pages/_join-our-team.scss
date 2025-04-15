@@ -1,0 +1,554 @@
+// Join Our Team Page Styles
+.about-us,
+.our-mission,
+.our-vision {
+    padding: var(--spacing-xl) 0;
+    background-color: #fff;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color-light) 100%);
+        opacity: 0.3;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        margin-bottom: var(--spacing-xl);
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: var(--accent-color);
+            transform: translateX(35%);
+        }
+    }
+
+    p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--font-color);
+        text-align: center;
+        margin-bottom: var(--spacing-md);
+        position: relative;
+        padding: 0 var(--spacing-md);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 var(--spacing-md);
+        }
+    }
+}
+
+.our-values {
+    padding: var(--spacing-xl) 0;
+    background-color: #f8f9fa;
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg) 0;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .value-card {
+        background: #fff;
+        padding: var(--spacing-lg);
+        border-radius: 15px;
+        box-shadow: var(--shadow-sm);
+        transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        position: relative;
+        overflow: hidden;
+        max-width: 400px;
+        width: 100%;
+
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(5),
+        &:nth-child(6) {
+            grid-column: span 2;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            opacity: 0.7;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.4rem;
+            position: relative;
+            padding-left: var(--spacing-md);
+            text-align: left;
+        }
+
+        p {
+            color: var(--font-color);
+            font-size: 1rem;
+            line-height: 1.6;
+            padding-left: var(--spacing-md);
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .values-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            
+            .value-card {
+                grid-column: span 2 !important;
+                margin: 0 auto;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .values-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+
+            .value-card {
+                grid-column: 1 !important;
+                margin: 0 auto;
+                max-width: 500px;
+            }
+        }
+
+        .value-card {
+            padding: var(--spacing-md);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .values-grid {
+            .value-card {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Variables
+$card-radius: 15px;
+$transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Mixins
+@mixin card-hover {
+    transition: all 0.3s $transition-bounce;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+@mixin section-title {
+    color: var(--secondary-color);
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+        width: 100px;
+    }
+}
+
+// Expertise Section Styles
+.expertise {
+    padding: var(--spacing-xl) 0;
+    background-color: #fff;
+
+    .expertise-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg) 0;
+    }
+
+    .expertise-card {
+        background: #fff;
+        padding: var(--spacing-lg);
+        border-radius: 15px;
+        box-shadow: var(--shadow-sm);
+        transition: all var(--transition-fast);
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+
+            .icon {
+                color: var(--accent-color);
+            }
+        }
+
+        .icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-md);
+            transition: color var(--transition-fast);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-color);
+        }
+
+        p {
+            color: var(--font-color);
+            line-height: 1.6;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .expertise-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+        }
+    }
+}
+
+// Mission Vision Section
+.mission-vision-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        opacity: 0.3;
+    }
+
+    // Add subtle pattern overlay
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            linear-gradient(45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+            linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%),
+            linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%),
+            linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.02) 75%);
+        background-size: 20px 20px;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+        position: relative;
+        z-index: 1;
+    }
+
+    .mission-vision-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+        align-items: start;
+        perspective: 1000px;
+    }
+
+    .mission-column,
+    .vision-column {
+        background: var(--secondary-color);
+        border-radius: $card-radius;
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-sm);
+        @include card-hover;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &:hover {
+            background: var(--primary-color);
+            border-color: var(--accent-color-light);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #fff;
+            text-align: left;
+            margin-bottom: var(--spacing-lg);
+            font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+
+            &:hover::after {
+                width: 100%;
+            }
+        }
+    }
+
+    .mission-list,
+    .vision-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            position: relative;
+            padding: var(--spacing-md) 0;
+            padding-left: var(--spacing-lg);
+            border-left: 3px solid var(--accent-color-light);
+            margin-bottom: var(--spacing-md);
+            transition: all 0.3s $transition-bounce;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent);
+
+            &:hover {
+                border-left-color: var(--accent-color);
+                transform: translateX(5px);
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), transparent);
+
+                &::before {
+                    transform: scale(1.2);
+                    background: var(--accent-color);
+                    box-shadow: 0 0 15px var(--accent-color);
+                }
+
+                h3 {
+                    color: var(--accent-color-light);
+                }
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: -8px;
+                top: var(--spacing-md);
+                width: 13px;
+                height: 13px;
+                background: var(--accent-color-light);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                box-shadow: 0 0 10px var(--accent-color);
+            }
+
+            h3 {
+                color: #fff;
+                font-size: 1.2rem;
+                margin-bottom: var(--spacing-sm);
+                font-weight: 600;
+                transition: color 0.3s ease;
+            }
+
+            p {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 1rem;
+                line-height: 1.6;
+                margin: 0;
+            }
+        }
+    }
+
+    // Animations
+    .mission-column {
+        animation: slideInLeft 0.6s $transition-bounce both;
+    }
+
+    .vision-column {
+        animation: slideInRight 0.6s $transition-bounce both;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    // Responsive Styles
+    @media (max-width: 992px) {
+        .mission-vision-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            perspective: none;
+        }
+
+        .mission-column,
+        .vision-column {
+            padding: var(--spacing-md);
+            animation: slideInUp 0.6s $transition-bounce both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: var(--spacing-lg) 0;
+
+        .container {
+            padding: 0 var(--spacing-sm);
+        }
+
+        .mission-list,
+        .vision-list {
+            li {
+                padding-left: var(--spacing-md);
+
+                h3 {
+                    font-size: 1.1rem;
+                }
+
+                p {
+                    font-size: 0.95rem;
+                }
+
+                &:hover {
+                    transform: translateX(3px);
+                }
+            }
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        .mission-column,
+        .vision-column {
+            animation: none;
+        }
+
+        .mission-list li,
+        .vision-list li {
+            transition: none;
+        }
+    }
+}
